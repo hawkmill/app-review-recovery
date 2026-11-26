@@ -1,0 +1,1102 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-11-25",
+  "corpus": {
+    "store": "google_play",
+    "reviews_total": 15894,
+    "reviews_with_dev_reply": 4367,
+    "negative_with_dev_reply": 2863,
+    "apps_replied": 10,
+    "apps_probed": 26
+  },
+  "patterns": [
+    {
+      "id": "BILLING-UNRECOGNIZED-CHARGE-INAPP-DISPUTE",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "charge I never made",
+        "unauthorized payment",
+        "unknown merchant",
+        "money left my account"
+      ],
+      "situation": "A user reports a charge they do not recognize, often in a public, alarmed tone.",
+      "reply_strategy": "Acknowledge in one clause, then hand them the self-serve path to dispute that specific transaction inside the app, and offer a human review as the second step.",
+      "do": [
+        "Point to the exact in-app action (open the transaction, report it)",
+        "Offer a second step for anything the self-serve path does not settle",
+        "Keep account specifics out of the thread"
+      ],
+      "dont": [
+        "Ask for card numbers, dates or amounts in the reply",
+        "State whether the charge is valid",
+        "Promise a refund or a chargeback outcome"
+      ],
+      "example_case": "User sees a payment to a merchant they never used and has already frozen their card. Developer says an unrecognized payment can be reported from the transaction screen and offers a review of related card fees via its support address.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-STORE-MANAGED-SUBSCRIPTION-REDIRECT",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "medium",
+      "observed_in": [
+        "productivity",
+        "design"
+      ],
+      "complaint_signals": [
+        "free trial",
+        "charged without notice",
+        "cancel subscription",
+        "refund refused",
+        "auto-renewal"
+      ],
+      "situation": "The purchase was billed by the app store, so the developer cannot issue the refund themselves.",
+      "reply_strategy": "Say plainly who owns the billing relationship (the app store), name the store's refund process, and link the help article that explains it. Do not pretend you can refund it.",
+      "do": [
+        "State the boundary in the first sentence",
+        "Name the store's refund or dispute flow",
+        "Link one help article on store-managed subscriptions"
+      ],
+      "dont": [
+        "Apologize as if you will refund it",
+        "Send them to a generic support home page",
+        "Debate whether the trial terms were clear"
+      ],
+      "example_case": "User was billed a yearly fee after a trial and says both the developer and the store refused a refund. Developer explains the subscription is managed by the store where it was bought and points to that store's refund process plus an article on app-store subscriptions.",
+      "source": "https://play.google.com/store/apps/details?id=com.canva.editor",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-FREE-VS-PAID-BOUNDARY-CLARIFY",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "low",
+      "observed_in": [
+        "design"
+      ],
+      "complaint_signals": [
+        "everything costs money",
+        "paywalled",
+        "used to be free",
+        "not worth it anymore"
+      ],
+      "situation": "User objects to how much of the product sits behind a paywall, not to a specific charge.",
+      "reply_strategy": "Explain the boundary factually (what is free, how to recognize a paid item before using it, how to swap it for a free one). No persuasion, no discount pitch.",
+      "do": [
+        "Name the visual marker that identifies paid items",
+        "Give the one-step way to avoid the charge",
+        "Stay neutral about pricing"
+      ],
+      "dont": [
+        "Argue the price is fair",
+        "Upsell the paid plan",
+        "Repeat the same paragraph to every pricing complaint"
+      ],
+      "example_case": "User says a design tool now charges for basic actions. Developer explains that installing costs nothing, paid items carry a crown icon before you add them, and any paid item can be swapped for a free alternative.",
+      "source": "https://play.google.com/store/apps/details?id=com.canva.editor",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-OPAQUE-FEES-ASK-FOR-DETAILS-PRIVATELY",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "hidden charges",
+        "unexpected fees",
+        "rip off",
+        "fees increased",
+        "lost trust"
+      ],
+      "situation": "User alleges hidden or unfair fees but gives no specifics you could check.",
+      "reply_strategy": "Say you want to look at the specific charges, and ask them to write from their registered email with the fees in question. Move the dispute off the public thread.",
+      "do": [
+        "Ask for the specific fees, not the whole story",
+        "Require the registered/contact email so the right account is reviewed",
+        "Acknowledge the trust damage without admitting fault"
+      ],
+      "dont": [
+        "Defend the fee schedule publicly",
+        "Deny that the fees exist",
+        "Publish fee breakdowns that reveal the user's account"
+      ],
+      "example_case": "User accuses a neobank of hidden charges and says they have lost all trust. Developer says it would like to review the charges mentioned and asks for an email from the address linked to the account.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-DELAYED-TRANSFER-URGENCY-PLUS-CAUSE",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "money hasn't arrived",
+        "still pending",
+        "3 days",
+        "needed for an emergency",
+        "hospital"
+      ],
+      "situation": "Funds are stuck in transit and the user names a real-world consequence.",
+      "reply_strategy": "Name the urgency back to them, give one neutral sentence on what can affect transfer timing, and route to a specialist who can see that specific transfer.",
+      "do": [
+        "Acknowledge the consequence, not just the delay",
+        "Offer a brief, non-blaming explanation of what affects timing",
+        "Route to a team that can inspect the individual transfer"
+      ],
+      "dont": [
+        "Give an estimated arrival time",
+        "Blame the sending bank or the user",
+        "Reply with the generic 'contact support' line"
+      ],
+      "example_case": "A transfer meant to cover a hospital bill took days to land and carried large fees. Developer acknowledges the frustration in an urgent situation, notes that timing and intermediary fees depend on the transfer rail, and asks for registered details so a specialist can look into that transfer.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-STUCK-INSTANT-PAYMENT-SECOND-CHANCE",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "instant transfer",
+        "never went to my bank",
+        "sitting pending",
+        "called my bank"
+      ],
+      "situation": "A paid-for 'instant' option did not behave as advertised and the user is stranded mid-transaction.",
+      "reply_strategy": "Recognize that earlier support may not have resolved it, then offer a fresh look through a dedicated link. Frame it as a second attempt, not a first contact.",
+      "do": [
+        "Acknowledge that prior help may have fallen short",
+        "Use a dedicated, issue-specific support link",
+        "Keep the first sentence about the user's situation, not your brand"
+      ],
+      "dont": [
+        "Explain how instant transfers normally work",
+        "Ask them to redo troubleshooting they already did",
+        "Use the same link you post under every review"
+      ],
+      "example_case": "Stranded at a gas station, a user chose the instant deposit option and the money stayed pending. Developer says it may not have given the help expected before and offers a second chance through a separate support link.",
+      "source": "https://play.google.com/store/apps/details?id=com.squareup.cash",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-REFUND-DENIED-NO-PUBLIC-VERDICT",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "travel"
+      ],
+      "complaint_signals": [
+        "refund never showed up",
+        "wouldn't refund",
+        "cancellation policy",
+        "non-refundable",
+        "scam"
+      ],
+      "situation": "A refund was refused or a cancellation term is disputed. The developer's verdict and the user's story conflict.",
+      "reply_strategy": "Acknowledge the disagreement, say you would like to look into it, and ask for the booking reference through a channel where records can be checked. Never rule on the case in the reply.",
+      "do": [
+        "Ask for the itinerary or order reference",
+        "Use a neutral verb ('look into', 'review')",
+        "Keep it short; long replies read as stonewalling"
+      ],
+      "dont": [
+        "Restate the cancellation policy as the answer",
+        "Say the refund was correctly denied",
+        "Repeat the same paragraph across dozens of reviews"
+      ],
+      "example_case": "User says a booking shown as refundable was partly non-refundable and a refund has not arrived. Developer says it wants to review the matter but cannot message reviewers directly on the store, and gives one support URL.",
+      "source": "https://play.google.com/store/apps/details?id=com.expedia.bookings",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-PRICE-DISPLAY-MISMATCH-SPLIT-ROUTING",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "travel"
+      ],
+      "complaint_signals": [
+        "price shown",
+        "total was different",
+        "hidden taxes",
+        "charged more than",
+        "deceiving"
+      ],
+      "situation": "The price the user saw is not the price they paid. This is both a product complaint and a charge dispute.",
+      "reply_strategy": "Handle both halves: tell them the pricing feedback is being passed to the product team, and separately route the specific booking to support. One sentence each.",
+      "do": [
+        "Separate the product issue from the individual charge",
+        "Give a channel for the individual charge",
+        "Avoid defending the price display"
+      ],
+      "dont": [
+        "Explain how taxes and fees are displayed",
+        "Only collect the feedback and ignore the charge",
+        "Only route to support and ignore the display bug"
+      ],
+      "example_case": "User complains that the headline price hides taxes and fees until the card screen. Developer thanks them for the pricing feedback, says it cannot promise immediate changes, and offers a support route for the specific booking.",
+      "source": "https://play.google.com/store/apps/details?id=com.expedia.bookings",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-ORDER-LEVEL-CHARGE-DEEP-LINK-PATH",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "medium",
+      "observed_in": [
+        "retail"
+      ],
+      "complaint_signals": [
+        "charged twice",
+        "delivery fee",
+        "duplicate charge",
+        "cancelled order",
+        "money tied up"
+      ],
+      "situation": "The disputed charge belongs to one order. A general support entry point forces the user to re-find the order.",
+      "reply_strategy": "Give the tap-by-tap path from the order record to a support conversation, so the agent arrives with the order already in context.",
+      "do": [
+        "Start the path from the order, not from the help menu",
+        "Write it as an explicit breadcrumb (Screen > Item > Action)",
+        "State what the team will do once there (review the transaction)"
+      ],
+      "dont": [
+        "Say 'contact customer service' with no path",
+        "Mix order issues and app bugs in one route",
+        "Send the same breadcrumb to a complaint it does not fit"
+      ],
+      "example_case": "User was billed twice for one item at self-checkout and the app's return flow has no matching reason. Developer gives a path from purchase history to the specific order and its support chat so the transaction can be reviewed.",
+      "source": "https://play.google.com/store/apps/details?id=com.walmart.android",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-AUTOMATIC-DEDUCTION-NAME-THE-STAKES",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "took my money",
+        "auto",
+        "borrow",
+        "repay",
+        "that was my",
+        "can't eat"
+      ],
+      "situation": "A product feature automatically withdrew money and the user says it cost them something essential.",
+      "reply_strategy": "Acknowledge the severity of the concrete consequence in plain words before anything else. Then invite them to a review of that feature's transactions.",
+      "do": [
+        "Acknowledge severity explicitly",
+        "Name the feature so they know you read the review",
+        "Offer a review of the transactions in question"
+      ],
+      "dont": [
+        "Explain how the feature is designed to work",
+        "Lead with policy language",
+        "Scale the stakes down ('we understand your frustration')"
+      ],
+      "example_case": "A repayment feature took two incoming payments minutes apart and the user says it cost them money for food. Developer says it understands the severity of the situation, names the feature, and offers a review of those transactions.",
+      "source": "https://play.google.com/store/apps/details?id=com.squareup.cash",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "BILLING-UNUSED-CREDIT-ESCALATE-WITH-REFERENCE",
+      "store": "google",
+      "category": "billing_refund",
+      "severity": "medium",
+      "observed_in": [
+        "travel"
+      ],
+      "complaint_signals": [
+        "credit",
+        "voucher",
+        "can't apply",
+        "wants to charge my card",
+        "no option to"
+      ],
+      "situation": "A credit the user is owed cannot be redeemed in the checkout flow.",
+      "reply_strategy": "Treat it as a technical account issue: say it is being investigated and ask for the booking details through the support channel.",
+      "do": [
+        "Say the specific failure is being investigated",
+        "Ask for booking or itinerary details",
+        "Offer one channel"
+      ],
+      "dont": [
+        "Explain credit terms",
+        "Tell them to try again later",
+        "Ignore the redemption failure and only apologize"
+      ],
+      "example_case": "User holds flight credit that the app will not apply at checkout, and chat and phone support are both unreachable. Developer says the issue is being investigated and points to a chat route to a live agent.",
+      "source": "https://play.google.com/store/apps/details?id=com.expedia.bookings",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-CLOSURE-POLICY-LINK-PLUS-APPEAL",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "account closed",
+        "deactivated",
+        "violated policy",
+        "no clear information why",
+        "appeal"
+      ],
+      "situation": "The account was closed for a policy violation and the user says they were never told what they did.",
+      "reply_strategy": "Recognize that a closure is hard news, link the terms so the user can read the policy themselves, and give the appeal route. Do not state the violation publicly.",
+      "do": [
+        "Link the terms of service",
+        "Offer a route to request more information or appeal",
+        "Keep the tone neutral, not defensive"
+      ],
+      "dont": [
+        "Name the suspected violation in public",
+        "Say the decision is final with no next step",
+        "Copy a generic 'reach out here' line"
+      ],
+      "example_case": "User says the account was deactivated with only a vague policy reference. Developer notes there are many possible reasons for a closure, links its terms of service, and offers a separate contact option for further help.",
+      "source": "https://play.google.com/store/apps/details?id=com.squareup.cash",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-CLOSURE-REGULATORY-BOUNDARY",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "closed without explanation",
+        "both accounts closed",
+        "regulatory",
+        "careful review"
+      ],
+      "situation": "A regulated financial account was closed and the user demands a reason in public.",
+      "reply_strategy": "State three things in order: decisions follow review and regulatory requirements, specifics cannot be discussed in public, and a registered-email channel exists for clarification.",
+      "do": [
+        "Explain the regulatory frame in one sentence",
+        "State the public/private boundary explicitly",
+        "Give the exact channel (registered email address)"
+      ],
+      "dont": [
+        "Hint at the reason",
+        "Argue with the accusation",
+        "Leave 'final' as the last word with no channel"
+      ],
+      "example_case": "A long-standing personal and business customer says both accounts were closed with no meaningful explanation. Developer says closure decisions follow careful review and regulatory requirements, that specifics cannot be discussed on public platforms, and gives a support address for further clarification.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-REPEATED-VERIFICATION-EXPLAIN-WHY",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "frozen",
+        "again",
+        "same documents",
+        "verification",
+        "asked for my picture"
+      ],
+      "situation": "The account keeps getting restricted pending the same identity or funding checks.",
+      "reply_strategy": "Explain in one sentence why the check is required (security, regulation), then ask them to write in so the specific pattern can be reviewed.",
+      "do": [
+        "Give the reason for the check",
+        "Acknowledge the repetition is frustrating",
+        "Offer a review of why it keeps recurring"
+      ],
+      "dont": [
+        "Repeat 'we must comply with regulations' alone",
+        "Tell them to submit the documents again",
+        "Imply the user did something wrong"
+      ],
+      "example_case": "User says the account was frozen repeatedly while adding money with another bank's card and the same documents were requested each time. Developer explains top-up cards must be verified as a regulated institution and asks for an email to look closer.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-DEVICE-INTEGRITY-BLOCK-EXPLAIN-AND-FIX",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "rooted",
+        "emulator",
+        "device not supported",
+        "can't update",
+        "flags my device"
+      ],
+      "situation": "A security check rejects the user's device and they insist the device is ordinary.",
+      "reply_strategy": "State the check that is failing and why it exists, give two or three concrete things to try, and offer a channel if it persists.",
+      "do": [
+        "Name the check (official software, device integrity)",
+        "Give ordered steps (clear data, restart, retry)",
+        "Offer a next step if it still fails"
+      ],
+      "dont": [
+        "Accuse the user of modifying the device",
+        "Only say the device is unsupported",
+        "Suggest bypassing the check"
+      ],
+      "example_case": "User cannot update a banking app because it reports a rooted device. Developer explains the app requires official manufacturer software for security reasons and lists steps to try before contacting support.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-AGE-VERIFICATION-CORRECT-IN-APP",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "age verification",
+        "over 18",
+        "wrong birthday",
+        "confirm age"
+      ],
+      "situation": "An age gate is blocking an adult user who has already paid or verified elsewhere.",
+      "reply_strategy": "Give the exact settings path to correct the age group, list the accepted verification methods, and mention that a failed method can be retried with another.",
+      "do": [
+        "Give the settings path to fix it",
+        "List the verification methods accepted",
+        "Mention the retry/alternative option"
+      ],
+      "dont": [
+        "Explain why age verification exists at length",
+        "Send them to a general contact page without the path",
+        "Doubt the user's stated age"
+      ],
+      "example_case": "Long-time paying user fails an age check despite a card on file and a stated birth date. Developer gives the settings location for confirming age, lists several accepted methods, and notes another method can be chosen if one fails.",
+      "source": "https://play.google.com/store/apps/details?id=com.discord",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-RESTRICTED-BY-ASSOCIATION-REVIEW-REQUEST",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "high",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "restricted",
+        "server I joined",
+        "punishing me for",
+        "violation",
+        "wasn't even active"
+      ],
+      "situation": "The account was restricted because of a group or server it belonged to, not for the user's own actions.",
+      "reply_strategy": "Acknowledge why that feels unfair, then point to the formal review request in the violation notice.",
+      "do": [
+        "Acknowledge the user's feeling of being blamed for others",
+        "Point to the review link in the notice itself",
+        "Offer a second route if the notice is missing"
+      ],
+      "dont": [
+        "Defend the enforcement action",
+        "Discuss the group's content",
+        "Tell them the restriction is permanent"
+      ],
+      "example_case": "User's account was restricted because of a server joined a year earlier that they no longer read. Developer acknowledges the frustration and explains how to ask for the violation to be reviewed, from the notice or the help site.",
+      "source": "https://play.google.com/store/apps/details?id=com.discord",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-SUSPENSION-SHOW-WHERE-THE-REASON-IS",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "suspended out of nowhere",
+        "banned for no reason",
+        "what did I do"
+      ],
+      "situation": "User says the suspension came with no reason, but the reason is visible in the product.",
+      "reply_strategy": "Tell them where in settings the account standing and reason are shown, then where to get help with the remaining steps.",
+      "do": [
+        "Name the settings screen that shows the status",
+        "Give the help route for the part that needs a human",
+        "Keep it short"
+      ],
+      "dont": [
+        "Say 'we take safety seriously'",
+        "Ask them to describe the violation",
+        "Send them to a forum"
+      ],
+      "example_case": "User says an account was suspended without warning right after sign-up. Developer says to check the account standing section in settings for details and gives a help link for registration or verification problems.",
+      "source": "https://play.google.com/store/apps/details?id=com.discord",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-SIGNIN-CODE-NOT-ARRIVING-FALLBACK",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "design"
+      ],
+      "complaint_signals": [
+        "code never came",
+        "OTP",
+        "didn't receive",
+        "resend",
+        "takes hours"
+      ],
+      "situation": "The sign-in or verification code never reaches the user.",
+      "reply_strategy": "Give the two or three most likely causes as checks (wrong address, spam folder), then a fallback link with more steps, then a support contact.",
+      "do": [
+        "Address the user by name if the store shows it",
+        "Order checks from most to least likely",
+        "End with a support contact, not just an article"
+      ],
+      "dont": [
+        "Only say 'check your spam folder'",
+        "Offer to send the code yourself",
+        "Suggest creating a new account"
+      ],
+      "example_case": "User cannot get a login code for a school account and needs it urgently. Developer tells them to check spam and confirm the address, links troubleshooting steps, and offers a support contact to take a closer look.",
+      "source": "https://play.google.com/store/apps/details?id=com.canva.editor",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-SIGNIN-METHOD-MISMATCH",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "low",
+      "observed_in": [
+        "design"
+      ],
+      "complaint_signals": [
+        "can't log in",
+        "doesn't recognize me",
+        "signed up with",
+        "Google login",
+        "phone number"
+      ],
+      "situation": "The user cannot sign in, most likely because they are using a different method or address than at sign-up.",
+      "reply_strategy": "State the likely cause as a check (same email and sign-in method as when the account was created), then link a dedicated recovery page.",
+      "do": [
+        "Frame the cause as something to check, not a diagnosis",
+        "Link a page dedicated to sign-in problems",
+        "Keep it to two sentences"
+      ],
+      "dont": [
+        "Reset the password for them or ask for it",
+        "List every possible cause",
+        "Route to a general help center"
+      ],
+      "example_case": "User cannot sign in with a phone number because the code arrived through a different channel. Developer suggests using the same email and sign-in method used to create the account and links a recovery page.",
+      "source": "https://play.google.com/store/apps/details?id=com.canva.editor",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-VERIFICATION-LINK-TECHNICAL-CATCH",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "verify email",
+        "link doesn't work",
+        "keeps asking",
+        "stuck in a loop"
+      ],
+      "situation": "A verification link or QR flow loops and never completes. There is a specific, non-obvious technical cause.",
+      "reply_strategy": "Name the exact condition that breaks the flow and the workaround, then ask for a screen recording if it still fails.",
+      "do": [
+        "Name the specific cause (same device, same profile, newest link only)",
+        "Give a workaround",
+        "Ask for a screen recording rather than a description"
+      ],
+      "dont": [
+        "Say 'try again later'",
+        "Resend the same instructions",
+        "Blame the user's connection"
+      ],
+      "example_case": "User taps a verify-email button and the app keeps demanding verification. Developer explains the link only works on the same phone and profile as the app and only the newest link is valid, gives a copy-paste workaround, and asks for a recording if still stuck.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-LOCKED-OUT-OF-OLD-ACCOUNT-IN-APP-REPORT",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "high",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "old account",
+        "don't have access to",
+        "recovery",
+        "old phone number",
+        "manual override"
+      ],
+      "situation": "The user wants an old account back and no longer controls the original email or phone. Recovery cannot be done from a review reply.",
+      "reply_strategy": "Say upfront that it has to be handled inside the app, then give a numbered tap path to report the problem. Do not discuss the account.",
+      "do": [
+        "State that the store reply cannot resolve it",
+        "Give a numbered in-app path",
+        "Acknowledge the wait"
+      ],
+      "dont": [
+        "Ask for the old email, phone or password",
+        "Promise the account will be restored",
+        "Reply with a feature-request template"
+      ],
+      "example_case": "User knows an old account's credentials but recovery demands a phone number from years ago. Developer gives numbered steps to report the problem from the profile menu.",
+      "source": "https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "ACCT-REACH-DROPPED-VISIBILITY-COMPLAINT",
+      "store": "google",
+      "category": "account_suspension",
+      "severity": "medium",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "shadowbanned",
+        "no engagement",
+        "fake views",
+        "flagged my device",
+        "not on the fyp"
+      ],
+      "situation": "A creator believes the algorithm is suppressing them and describes it as a penalty.",
+      "reply_strategy": "Treat it as a reportable account problem: apologize for the inconvenience and route to the in-app report path. Do not debate how the algorithm works.",
+      "do": [
+        "Use the same in-app report route as for lockouts",
+        "Avoid confirming or denying a 'ban'",
+        "Keep it short"
+      ],
+      "dont": [
+        "Explain the recommendation algorithm",
+        "Say there is no such thing as a shadowban",
+        "Reply with the feature-request template"
+      ],
+      "example_case": "Creator reports no engagement and suspects the device is flagged. Developer apologizes for the inconvenience and gives the in-app path to report the issue.",
+      "source": "https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-REPLY-COMPLAINT-ACKNOWLEDGE-PRIOR-FAILURE",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "high",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "don't respond with",
+        "closed the chat",
+        "you didn't help",
+        "still not resolved",
+        "just got the same response"
+      ],
+      "situation": "The review is about the developer's previous reply or support, not the product. A standard reply here confirms the user's point.",
+      "reply_strategy": "Say directly that earlier help may not have resolved it, use the user's name if available, and offer to look again. Drop the boilerplate.",
+      "do": [
+        "Acknowledge the earlier support failure in plain words",
+        "Address the user by name where the store shows it",
+        "Offer a fresh look rather than restating the standard line"
+      ],
+      "dont": [
+        "Reuse the standard 'we are here to help' sentence",
+        "Defend the support team",
+        "Pretend this is first contact"
+      ],
+      "example_case": "User says support closed the chat without solving the problem and asks the developer not to reply that it is here to help. Developer says the user may not have received the help hoped for before and offers to look into it further.",
+      "source": "https://play.google.com/store/apps/details?id=com.squareup.cash",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-AI-CHAT-LOOP-ROUTE-TO-HUMAN",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "high",
+      "observed_in": [
+        "travel"
+      ],
+      "complaint_signals": [
+        "AI chat",
+        "chatbot",
+        "repeats the same answer",
+        "real person",
+        "virtual agent",
+        "agent"
+      ],
+      "situation": "The user is trapped in an automated support loop and says so.",
+      "reply_strategy": "Acknowledge the automated agent specifically, say it is being looked at, and describe how to reach a human agent from the support page.",
+      "do": [
+        "Name the automation the user complained about",
+        "Describe the click that reaches a human",
+        "Keep the apology specific"
+      ],
+      "dont": [
+        "Send them back into the same chat without saying how to get a human",
+        "Deny or ignore the automation",
+        "Use the general 'contact support' line"
+      ],
+      "example_case": "User says a virtual agent repeats wrong answers and a confirmed refund has not arrived. Developer acknowledges the feedback about the virtual agent and explains which option on the support page connects to a live agent.",
+      "source": "https://play.google.com/store/apps/details?id=com.expedia.bookings",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-NO-DM-ON-STORE-STATE-AND-COMPENSATE",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "travel",
+        "retail",
+        "social"
+      ],
+      "complaint_signals": [
+        "never contacted me",
+        "no response",
+        "how do I reach you",
+        "can't message"
+      ],
+      "situation": "The case needs details the user will not post publicly, and the store does not let developers message reviewers.",
+      "reply_strategy": "Say in the first or second sentence that you cannot message directly on the store, then give one channel and list exactly which details to bring.",
+      "do": [
+        "State the no-direct-message limit explicitly",
+        "Give exactly one channel",
+        "List what to include (reference number, itinerary, device model)"
+      ],
+      "dont": [
+        "Say 'we are always here to help' without a channel",
+        "Give three or four channels at once",
+        "Ask for details in the public reply"
+      ],
+      "example_case": "User's booking changed dates after the app froze at checkout. Developer says direct messaging is not available on the store and asks for name and itinerary details through the support site.",
+      "source": "https://play.google.com/store/apps/details?id=com.expedia.bookings",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-REPRO-DETAILS-REQUEST",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "crashes",
+        "can't access",
+        "freezes",
+        "logged out",
+        "constant"
+      ],
+      "situation": "A blocking technical problem with too little information to act on.",
+      "reply_strategy": "Acknowledge what is blocked, then ask for the three things that make a bug reproducible: device model, app or OS version, and what happens on screen.",
+      "do": [
+        "Ask for device, version and observed behaviour",
+        "Say what blocked them in their words",
+        "Give one contact route"
+      ],
+      "dont": [
+        "Give a troubleshooting ladder before asking anything",
+        "Use a generic 'sorry for the inconvenience' with no question",
+        "Ask for logs in the public reply"
+      ],
+      "example_case": "User cannot reach their money because the app freezes at sign-in after an update. Developer asks them to email their device model, app version and what they see on screen.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-TROUBLESHOOT-LADDER-THEN-ESCALATE",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "retail",
+        "fintech",
+        "social",
+        "streaming"
+      ],
+      "complaint_signals": [
+        "keeps crashing",
+        "laggy",
+        "not loading",
+        "doesn't work",
+        "after the update"
+      ],
+      "situation": "A common technical symptom that the standard steps resolve most of the time.",
+      "reply_strategy": "List three or four ordered steps (update, restart, clear cache, reinstall), then one escalation route for when they fail.",
+      "do": [
+        "Order steps from least to most disruptive",
+        "Include the platform-specific path (settings > apps > storage)",
+        "End with an escalation route"
+      ],
+      "dont": [
+        "List more than four steps",
+        "Omit the escalation and stop at 'reinstall'",
+        "Give steps that do not match the symptom"
+      ],
+      "example_case": "User reports a group-payment button that stopped working. Developer suggests updating, clearing the app cache via the device settings path and restarting, then the in-app chat if it persists.",
+      "source": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-SYMPTOM-NAMED-HELP-ARTICLE",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "design",
+        "streaming"
+      ],
+      "complaint_signals": [
+        "looks different after",
+        "download fails",
+        "low quality",
+        "muffled",
+        "watermark"
+      ],
+      "situation": "The symptom matches a known issue with a dedicated help article.",
+      "reply_strategy": "Restate the symptom as the user experienced it, then name the article by its symptom so they can find it even if the link breaks.",
+      "do": [
+        "Restate the symptom in the user's terms",
+        "Name the help topic by symptom",
+        "Give one concrete next action"
+      ],
+      "dont": [
+        "Link an unrelated or generic article",
+        "Name the article by internal jargon",
+        "Send a bare link with no sentence"
+      ],
+      "example_case": "User says a downloaded design differs from the editor. Developer restates that, points to the help topic on designs looking different after download, and suggests trying another supported format.",
+      "source": "https://play.google.com/store/apps/details?id=com.canva.editor",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-SUBSCRIPTION-HOLDER-EXPLICIT-INVESTIGATION",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "streaming"
+      ],
+      "complaint_signals": [
+        "I pay for",
+        "premium",
+        "still get ads",
+        "for a paid service"
+      ],
+      "situation": "A paying subscriber hits a problem that free users would tolerate.",
+      "reply_strategy": "Say you would like to investigate, and ask them to contact support with a screenshot of the review and reply so the agent has context.",
+      "do": [
+        "Recognize they are paying",
+        "Ask them to bring the review thread to support",
+        "Offer social or messaging channels where they exist"
+      ],
+      "dont": [
+        "Treat it like a free-tier complaint",
+        "Only give troubleshooting steps",
+        "Explain ad policy at length"
+      ],
+      "example_case": "Paying listener still hears ads in podcasts and was told it is a feature. Developer asks them to contact support again with a screenshot of the review and reply, and lists the social handles and live messaging route.",
+      "source": "https://play.google.com/store/apps/details?id=com.spotify.music",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-SECOND-ATTEMPT-DEDICATED-LINK",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "fintech"
+      ],
+      "complaint_signals": [
+        "called many times",
+        "no help",
+        "contacted multiple times",
+        "tickets",
+        "nobody answers"
+      ],
+      "situation": "The user has already been through support more than once.",
+      "reply_strategy": "Offer a distinct entry point from the one that failed and frame it as a second attempt at supporting them.",
+      "do": [
+        "Use a different link from the general support page",
+        "Frame it as another chance to help",
+        "Keep it to two sentences"
+      ],
+      "dont": [
+        "Send them back to the same queue without acknowledging it",
+        "Ask them to open a new ticket and re-explain",
+        "Promise a specific resolution"
+      ],
+      "example_case": "User updates a review to say repeated calls produced no help. Developer offers the chance to change their mind by providing the support they deserve through a separate link.",
+      "source": "https://play.google.com/store/apps/details?id=com.squareup.cash",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-COMMUNITY-FORUM-WITH-IN-APP-REPORT",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "low",
+      "observed_in": [
+        "maps"
+      ],
+      "complaint_signals": [
+        "wrong route",
+        "outdated",
+        "missing place",
+        "inaccurate",
+        "wrong names"
+      ],
+      "situation": "The complaint is about data quality that needs structured, in-product reporting rather than a conversation.",
+      "reply_strategy": "Ask the user to submit the details through the in-app report so the right team gets structured data, and optionally point to a help community.",
+      "do": [
+        "Say why the in-app report is better than a reply (structured details)",
+        "Address the user by name",
+        "Offer the forum as a second option, not the only one"
+      ],
+      "dont": [
+        "Send everyone to a forum where threads get locked",
+        "Give a generic 'we value your feedback' with no action",
+        "Use the same forum link for unrelated complaints"
+      ],
+      "example_case": "User reports misleading map data and misleading route times. Developer says it would like to learn more and asks for a post in the help community, after suggesting the in-app report that routes details to the product team.",
+      "source": "https://play.google.com/store/apps/details?id=com.google.android.apps.maps",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-FEATURE-PARKING-DEDICATED-BOARD",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "low",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "please add",
+        "bring back",
+        "switch accounts",
+        "why remove",
+        "feature request"
+      ],
+      "situation": "The review is a feature request or a complaint about a removed feature.",
+      "reply_strategy": "Send it to a public feedback board where requests can be upvoted, so the user can see it was logged.",
+      "do": [
+        "Give the feedback board URL",
+        "Say 'post or upvote' so they know it is a public log",
+        "Keep it short"
+      ],
+      "dont": [
+        "Use it for bug reports or account problems",
+        "Promise the feature will ship",
+        "Reply to an outage with a feedback link"
+      ],
+      "example_case": "User mourns a removed swipe gesture used daily. Developer points to the feedback site for posting or upvoting the change request.",
+      "source": "https://play.google.com/store/apps/details?id=com.discord",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    },
+    {
+      "id": "SUP-ACCESSIBILITY-WORKAROUND-PLUS-BOARD",
+      "store": "google",
+      "category": "support_unreachable",
+      "severity": "medium",
+      "observed_in": [
+        "social"
+      ],
+      "complaint_signals": [
+        "dyslexia",
+        "eye strain",
+        "font",
+        "screen reader",
+        "accessible",
+        "contrast"
+      ],
+      "situation": "A UI change makes the product harder to use for someone with an accessibility need.",
+      "reply_strategy": "Acknowledge the specific need, give the settings that help today, state honestly what is still limited, and ask for the feedback on the board.",
+      "do": [
+        "Acknowledge the specific accessibility need",
+        "Give the available settings (font size, contrast)",
+        "Say plainly what is not yet available"
+      ],
+      "dont": [
+        "Say accessibility is a priority with no action",
+        "Ignore the workaround and only give the board",
+        "Argue the new design is better"
+      ],
+      "example_case": "User with dyslexia says a redesign's smaller font causes eye strain. Developer names the accessibility settings that help today, says font options are limited for now, and asks for the feedback on its board.",
+      "source": "https://play.google.com/store/apps/details?id=com.discord",
+      "outcome_signal": "null",
+      "captured_at": "2026-11-25"
+    }
+  ]
+}

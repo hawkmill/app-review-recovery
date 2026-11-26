@@ -1,0 +1,19 @@
+name: lint
+
+on:
+  push:
+    paths: ["data/**", "skills/**", "SKILL.md", "scripts/**", ".github/workflows/lint.yml"]
+  pull_request:
+    paths: ["data/**", "skills/**", "SKILL.md", "scripts/**"]
+
+jobs:
+  patterns:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      # Raw corpus is not in the repo, so the verbatim-leak check is reported as skipped;
+      # run `python3 scripts/lint_patterns.py` locally with raw/ present before a release.
+      - run: python3 -I scripts/lint_patterns.py

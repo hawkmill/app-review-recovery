@@ -1,0 +1,6 @@
+# Raw review corpus and internal notes are never published — patterns only.
+raw/
+internal/
+*.pyc
+__pycache__/
+.DS_Store

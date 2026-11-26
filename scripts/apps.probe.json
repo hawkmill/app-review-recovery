@@ -1,0 +1,18 @@
+[
+  {"store": "android", "appId": "com.einnovation.temu", "vertical": "ecommerce", "pages": 3},
+  {"store": "android", "appId": "com.walmart.android", "vertical": "ecommerce", "pages": 3},
+  {"store": "android", "appId": "com.dd.doordash.android", "vertical": "ecommerce", "pages": 3},
+  {"store": "android", "appId": "com.ubercab.eats", "vertical": "ecommerce", "pages": 3},
+  {"store": "android", "appId": "com.ubercab", "vertical": "travel", "pages": 3},
+  {"store": "android", "appId": "com.chase.sig.android", "vertical": "fintech", "pages": 3},
+  {"store": "android", "appId": "com.google.android.apps.maps", "vertical": "tools", "pages": 3},
+  {"store": "android", "appId": "com.discord", "vertical": "tools", "pages": 3},
+  {"store": "android", "appId": "com.whatsapp", "vertical": "tools", "pages": 3},
+  {"store": "android", "appId": "com.expedia.bookings", "vertical": "travel", "pages": 3},
+  {"store": "android", "appId": "com.zhiliaoapp.musically", "vertical": "tools", "pages": 3},
+  {"store": "android", "appId": "com.sheingroup.shopping", "vertical": "ecommerce", "pages": 3},
+  {"store": "android", "appId": "com.poshmark.android", "vertical": "ecommerce", "pages": 3},
+  {"store": "android", "appId": "com.hinge.chat", "vertical": "tools", "pages": 3},
+  {"store": "android", "appId": "com.match.android.match", "vertical": "tools", "pages": 3},
+  {"store": "android", "appId": "com.bumble.app", "vertical": "tools", "pages": 3}
+]

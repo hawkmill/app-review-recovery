@@ -1,0 +1,72 @@
+[
+  {
+    "store": "android",
+    "appId": "com.squareup.cash",
+    "vertical": "fintech"
+  },
+  {
+    "store": "android",
+    "appId": "com.paypal.android.p2pmobile",
+    "vertical": "fintech"
+  },
+  {
+    "store": "android",
+    "appId": "com.revolut.revolut",
+    "vertical": "fintech"
+  },
+  {
+    "store": "android",
+    "appId": "com.ebay.mobile",
+    "vertical": "ecommerce"
+  },
+  {
+    "store": "android",
+    "appId": "com.booking",
+    "vertical": "travel"
+  },
+  {
+    "store": "android",
+    "appId": "com.tripadvisor.tripadvisor",
+    "vertical": "travel"
+  },
+  {
+    "store": "android",
+    "appId": "com.spotify.music",
+    "vertical": "tools"
+  },
+  {
+    "store": "android",
+    "appId": "com.canva.editor",
+    "vertical": "tools"
+  },
+  {
+    "store": "android",
+    "appId": "com.google.android.apps.maps",
+    "vertical": "tools"
+  },
+  {
+    "store": "android",
+    "appId": "com.expedia.bookings",
+    "vertical": "travel"
+  },
+  {
+    "store": "android",
+    "appId": "com.discord",
+    "vertical": "tools"
+  },
+  {
+    "store": "android",
+    "appId": "com.walmart.android",
+    "vertical": "ecommerce"
+  },
+  {
+    "store": "android",
+    "appId": "com.zhiliaoapp.musically",
+    "vertical": "tools"
+  },
+  {
+    "store": "android",
+    "appId": "com.einnovation.temu",
+    "vertical": "ecommerce"
+  }
+]
